@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+    <title>Login Page</title>
+    <style>
+
+        /* Center the login panel */
+        .login-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* 100% of the viewport height */
+        }
+
+        /* Add spacing between rows */
+        .row {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</h:head>
+
+<h:body>
+
+   <h:form styleClass="login-panel">
+
+        <p:panel header="Login">
+	<div class="row">
+            <h:outputLabel for="username" value="Username " />
+            <p:inputText id="username" value="#{loginBean.username}" required="true" />
+ 	</div>
+	<div class="row">
+ 			<h:outputLabel for="password" value="Password " />
+            <p:password id="password" value="#{loginBean.password}" required="true" />
+	</div>
+	<div class="row">
+            <p:commandButton value="Login" action="#{loginBean.login}" />
+	</div>
+        </p:panel>
+
+   </h:form>
+
+</h:body>
+
+</html>
