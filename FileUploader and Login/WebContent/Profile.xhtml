@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>My Profile</title>
+    <style>
+        /* Center the login panel */
+        .login-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Style for the navigation buttons on the right */
+        .nav-buttons {
+            display: flex;
+            flex-direction: row;
+            align-items:right;
+            justify-content:right;
+            background-color: #28823f;
+            padding: 10px;
+            color: white;
+        }
+
+        .nav-buttons p\:commandButton {
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .nav-buttons p\:commandButton.ui-button-danger {
+            background-color: #E53935;
+        }
+
+        /* Style for the profile information in the center */
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</h:head>
+
+<h:body>
+    <p:layout fullPage="true">
+        <p:layoutUnit position="north" header="Profile">
+            <h:form>
+                <div class="nav-buttons">
+                    <p:commandButton value="Dashboard" action="#{dashboardBean.navigateToDashboard}" />
+                    <p:commandButton value="Upload" action="#{dashboardBean.navigateToUpload}" />
+                    <p:commandButton value="Logout" action="#{loginBean.logout()}" styleClass="ui-button-danger" />
+                </div>
+            </h:form>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center">
+            <!-- Main content area -->
+            <h:form class="login-panel">
+                <div class="profile-info">
+                    <p:panel header="Profile Information">
+                        <div class="row">
+                            <h:outputLabel value="Username: #{user.username}" />
+                        </div>
+                        <div class="row">
+                            <h:outputLabel value="User ID: #{user.userId}" />
+                        </div>
+                        <div class="row">
+                            <h:outputLabel value="Role: #{user.role}" />
+                        </div>
+                    </p:panel>
+                </div>
+            </h:form>
+        </p:layoutUnit>
+    </p:layout>
+</h:body>
+</html>

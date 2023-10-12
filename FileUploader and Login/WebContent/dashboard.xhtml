@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Dashboard</title>
+</h:head>
+<h:body>
+    <p:layout fullPage="true">
+       <p:layoutUnit position="north" size="100" header="Dashboard" style="text-align: center;">
+    <h:form>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h:outputLabel  value="Welcome, #{user.userId}" style="font-size: 16px; padding-right: 10px;" />
+             <p:commandButton value="Profile"  action="#{dashboardBean.navigateToProfile}"  />
+             <p:commandButton value="Upload"  action="#{dashboardBean.navigateToUpload}" />
+            <p:commandButton value="Logout" action="#{loginBean.logout()}" styleClass="ui-button-danger" />
+          
+        </div>
+    </h:form>
+</p:layoutUnit>
+       
+        <p:layoutUnit position="center">
+            <!-- Main content area -->
+            <h:panelGrid columns="2" columnClasses="card">
+                <!-- Profile card -->
+                <h:panelGroup>
+                    <p:commandLink action="#{dashboardBean.navigateToProfile}">
+                        <p:panel header="Profile">
+                            <!-- Content for the profile card -->
+                        </p:panel>
+                    </p:commandLink>
+                </h:panelGroup>
+                <!-- Upload card -->
+                <h:panelGroup>
+                    <p:commandLink action="#{dashboardBean.navigateToUpload}">
+                        <p:panel header="Upload">
+                            <!-- Content for the upload card -->
+                        </p:panel>
+                    </p:commandLink>
+                </h:panelGroup>
+            </h:panelGrid>
+        </p:layoutUnit>
+    </p:layout>
+</h:body>
+</html>
